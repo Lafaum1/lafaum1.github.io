@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Conversor LJ</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+     }
+      body {
+
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      #container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+
+      #input-container label {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      #input-container input[type=text] {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+      }
+
+      #convert-button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #2196F3;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      #convert-button:hover {
+        background-color: #0D47A1;
+      }
+
+      #output-container {
+        display: none;
+        margin-top: 20px;
+      }
+
+      #output-text {
+        text-align: center;
+     }
+
+      #output-container p {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      #footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        margin-top: 20px;
+        background-color: #f2f2f2;
+      }
+
+      #footer p {
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Converta agora!</h1>
+      <div id="input-container">
+        <label for="input-text">Digite o nome:</label>
+        <input type="text" id="input-text">
+        <button id="convert-button">Converter!</button>
+      </div>
+      <div id="output-container">
+        <p id="output-text"></p>
+      </div>
+      <div id="footer">
+        <p>Criado por Lafayette Junior</p>
+      </div>
+    </div>
+    
+    <script>
+        // Pega os elementos da página
+        const inputElement = document.getElementById('input-text');
+        const outputElement = document.getElementById('output-text');
+        const convertButton = document.getElementById('convert-button');
+      
+        // Adiciona o evento de clique no botão de conversão
+        convertButton.addEventListener('click', () => {
+          // Pega o valor do input e formata a string para ter apenas a primeira letra maiúscula e o restante minúsculo
+          const inputValue = inputElement.value.toLowerCase();
+          const formattedValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+      
+          // Define o texto formatado no elemento de saída e exibe o resultado
+          outputElement.textContent = formattedValue;
+          document.getElementById('output-container').style.display = 'block';
+        });
+      </script>
+
